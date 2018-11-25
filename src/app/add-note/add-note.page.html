@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar
+    ><ion-buttons slot="start">
+      <ion-back-button
+      text="Back"
+      icon="ios-arrow-back"
+      color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="addNote(f.value)" #f="ngForm">
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-textarea name="title" ngModel></ion-textarea>
+    </ion-item>
+    <ion-button type="submit">Save Note</ion-button>
+  </form>
+</ion-content>

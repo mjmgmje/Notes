@@ -1,6 +1,8 @@
 {
   "name": "Notes",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "pro_id": "215956d8"
 }

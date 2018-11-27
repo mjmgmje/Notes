@@ -15,7 +15,11 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
-    this.notes = this.getAllNotes();
+    this.getAllNotes().then(
+      notes => {
+        this.notes = (notes == null) ? [] : notes;
+      }
+    );
   }
 
   getAllNotes() {

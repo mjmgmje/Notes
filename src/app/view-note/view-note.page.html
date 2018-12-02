@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar
+    ><ion-buttons slot="start">
+      <ion-back-button
+        text="Back"
+        icon="ios-arrow-back"
+        color="primary"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Note</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-card class="date" style="
+  padding-right: 0px;
+">
+    <ion-item>
+      <ion-card-content>
+        <ion-card-title *ngIf="note !== undefined">
+          {{ note.title }}
+        </ion-card-title>
+        <ion-card-subtitle class="note-date" *ngIf="note !== undefined">{{
+          note.date
+        }}</ion-card-subtitle>
+      </ion-card-content>
+    </ion-item>
+    <ion-card-content>
+      <div *ngIf="note !== undefined">{{ note.content }}</div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-button
+    color="danger"
+    expand="block"
+    (click)="DeleteNote(note.createDate)"
+    >Delete Note</ion-button
+  >
+</ion-footer>

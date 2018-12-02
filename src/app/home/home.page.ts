@@ -1,28 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { NoteServiceService } from '../note-service.service';
+import { Note } from '../models/node.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss']
+  styleUrls: ['home.page.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomePage {
-  noteService: NoteServiceService;
 
-  notes: { title: String }[] = [];
-  constructor(noteService: NoteServiceService) {
-    this.noteService = noteService;
+  notes: Promise<Note[]>;
+  constructor(public noteService: NoteServiceService, public router: Router) {
   }
 
   ionViewWillEnter() {
-    this.getAllNotes().then(
-      notes => {
-        this.notes = (notes == null) ? [] : notes;
-      }
-    );
+    this.notes = this.getAllNotes();
   }
 
   getAllNotes() {
     return this.noteService.getAllNotes();
+  }
+
+  goToNote(createDate: number) {
+    this.router.navigateByUrl('/notes/' + createDate);
   }
 }

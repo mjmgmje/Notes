@@ -3,10 +3,17 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card>
   <ion-list>
-    <ion-item *ngFor="let note of notes">
-      {{note.title}}
+    <ion-item
+      class="new"
+      *ngFor="let note of (notes | async)"
+      href="/notes/{{note.createDate}}"
+    >
+    <span class="date">{{ note.date }}</span>
+      {{ note.title }}
     </ion-item>
   </ion-list>
-  <ion-button href='/add-note'>Add Note</ion-button>
+</ion-card>
+  <ion-button href="/add-note">Add Note</ion-button>
 </ion-content>

@@ -2,33 +2,75 @@
   <ion-toolbar
     ><ion-buttons slot="start">
       <ion-back-button
-      text="Back"
-      icon="ios-arrow-back"
-      color="primary"></ion-back-button>
+        text="Back"
+        icon="ios-arrow-back"
+        color="primary"
+      ></ion-back-button>
     </ion-buttons>
     <ion-title>New Note</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-    <!--  -->
-    <!--  -->
+  <!---->
+  <!---->
   <form [formGroup]="FormNote" (ngSubmit)="addNote(FormNote.value)">
-    <ion-item>
-      <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date" ></ion-datetime>
-      <div class="alert"*ngIf="!FormNote.controls['title'].valid && !FormNote.controls['title'].touched">{{ dateAlert }}</div>
-    </ion-item>
-    <ion-item>
-      <ion-label>Title</ion-label>
-      <ion-input name="title" type="text" formControlName="title" required></ion-input>
-      <div class="alert"*ngIf="!FormNote.controls['title'].valid && FormNote.controls['title'].touched">{{ titleAlert }}</div>
-    </ion-item>
-    <ion-item>
-      <ion-label>Note</ion-label>
-      <ion-input name="title" type="text" formControlName="content" required></ion-input>
-      <div class="alert"*ngIf="!FormNote.controls['title'].valid && FormNote.controls['title'].touched">{{ contentAlert }}</div>
-    </ion-item>
-    <ion-button type="submit" [disabled]="!FormNote.valid">Save Note</ion-button>
+    <ion-card>
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime
+          displayFormat="MM/DD/YYYY"
+          formControlName="date"
+        ></ion-datetime>
+        <div
+          class="alert"
+          *ngIf="
+            !FormNote.controls['date'].valid &&
+            !FormNote.controls['date'].touched
+          "
+        >
+          {{ dateAlert }}
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label>Title</ion-label>
+        <ion-input
+          name="title"
+          type="text"
+          formControlName="title"
+          required
+        ></ion-input>
+        <div
+          class="alert"
+          *ngIf="
+            !FormNote.controls['title'].valid &&
+            FormNote.controls['title'].touched
+          "
+        >
+          {{ titleAlert }}
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label>Note</ion-label>
+        <ion-input
+          name="content"
+          type="text"
+          formControlName="content"
+          required
+        ></ion-input>
+        <div
+          class="alert"
+          *ngIf="
+            !FormNote.controls['content'].valid &&
+            FormNote.controls['content'].touched
+          "
+        >
+          {{ contentAlert }}
+        </div>
+      </ion-item>
+    </ion-card>
+    <ion-button type="submit" [disabled]="!FormNote.valid"
+      >Save Note</ion-button
+    >
   </form>
 </ion-content>

@@ -1,6 +1,6 @@
 export interface Note {
-  title: String;
-  content: String;
+  title: string;
+  content: string;
   date: Date;
-  createDate: Number;
+  createDate: number;
 }

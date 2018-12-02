@@ -8,7 +8,6 @@ import { map } from 'rxjs/operators';
   selector: 'app-view-note',
   templateUrl: './view-note.page.html',
   styleUrls: ['./view-note.page.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class ViewNotePage implements OnInit {
   note: Note;

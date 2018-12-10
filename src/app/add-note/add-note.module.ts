@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { AddNotePage } from './add-note.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+
 
 const routes: Routes = [
   {
@@ -16,6 +18,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    MatInputModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

@@ -16,6 +16,17 @@
   <!---->
   <form [formGroup]="FormNote" (ngSubmit)="addNote(FormNote.value)">
     <ion-card>
+      
+      <ion-item>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Title" formControlName="title">
+        </mat-form-field>
+      </ion-item>
+      <ion-item>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Content" formControlName="content">
+        </mat-form-field>
+      </ion-item>
       <ion-item>
         <ion-label>Date</ion-label>
         <ion-datetime
@@ -30,42 +41,6 @@
           "
         >
           {{ dateAlert }}
-        </div>
-      </ion-item>
-      <ion-item>
-        <ion-label>Title</ion-label>
-        <ion-input
-          name="title"
-          type="text"
-          formControlName="title"
-          required
-        ></ion-input>
-        <div
-          class="alert"
-          *ngIf="
-            !FormNote.controls['title'].valid &&
-            FormNote.controls['title'].touched
-          "
-        >
-          {{ titleAlert }}
-        </div>
-      </ion-item>
-      <ion-item>
-        <ion-label>Note</ion-label>
-        <ion-input
-          name="content"
-          type="text"
-          formControlName="content"
-          required
-        ></ion-input>
-        <div
-          class="alert"
-          *ngIf="
-            !FormNote.controls['content'].valid &&
-            FormNote.controls['content'].touched
-          "
-        >
-          {{ contentAlert }}
         </div>
       </ion-item>
     </ion-card>

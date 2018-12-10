@@ -26,7 +26,7 @@ export class AddNotePage implements OnInit {
   ) {
     this.FormNote = new FormGroup({
       title: new FormControl('', Validators.required),
-      content: new FormControl(),
+      content: new FormControl('', Validators.required),
       date: new FormControl()
     });
   }

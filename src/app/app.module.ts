@@ -11,11 +11,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { NoteServiceService } from './note-service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [FormsModule, ReactiveFormsModule, BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot(), AppRoutingModule],
+  imports: [FormsModule, ReactiveFormsModule, BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot(), AppRoutingModule,
+  BrowserAnimationsModule, MatButtonModule, MatCheckboxModule],
   providers: [
     StatusBar,
     SplashScreen,
